@@ -48,20 +48,27 @@ def load_data():
     
     return bureau_agg, prev_agg, pos_agg, ins_agg, cc_agg
 
-@st.cache_data
-def load_models():
-    with open('xgb_clf.pkl', 'rb') as file:
-        xgb_clf = pickle.load(file)
+# @st.cache_data
+# def load_models():
+#     with open('xgb_clf.pkl', 'rb') as file:
+#         xgb_clf = pickle.load(file)
 
-    with open('optimal_threshold.pkl', 'rb') as file:
-        optimal_threshold = pickle.load(file)
+#     with open('optimal_threshold.pkl', 'rb') as file:
+#         optimal_threshold = pickle.load(file)
     
-    return xgb_clf, optimal_threshold
+#     return xgb_clf, optimal_threshold
 
 
 # Load data and models
 bureau_agg, prev_agg, pos_agg, ins_agg, cc_agg = load_data()
-xgb_clf, optimal_threshold = load_models()
+#xgb_clf, optimal_threshold = load_models()
+
+with open('xgb_clf.pkl', 'rb') as file:
+    xgb_clf = pickle.load(file)
+
+with open('optimal_threshold.pkl', 'rb') as file:
+    optimal_threshold = pickle.load(file)
+
 
 nan_as_category = True 
 
